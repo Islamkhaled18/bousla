@@ -19,13 +19,17 @@
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> المشرفين وصلاحياتهم</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-
+                @can('admins')
                 <li><a class="treeview-item" href="{{ route('admin.admins.index') }}"><i
                             class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">المشرفين</span></a>
                 </li>
+                @endcan
+                @can('roles')
 
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
+                <li><a class="treeview-item" href="{{ route('admin.roles.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">اوامر وصلاحيات</span></a></li>
+                @endcan
 
             </ul>
         </li>
@@ -35,11 +39,11 @@
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> الاقسام</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">الاقسم
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
+                            class="app-menu__label">الاقسم
                             الرئيسيه</span></a></li>
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">الاقسام</span></a></li>
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
+                            class="app-menu__label">الاقسام</span></a></li>
             </ul>
         </li>
 
@@ -47,8 +51,7 @@
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">المنتجات وخصائصها</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i
-                            class="icon fa fa-circle-o"></i>المنتجات</a></li>
+                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>المنتجات</a></li>
                 <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>الوان
                         المنتجات</a></li>
                 <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> مقاس
@@ -69,8 +72,7 @@
 
                 <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">طلبات العملاء</span></a></li>
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">طلبات الاسترجاع</span></a>
                 </li>
 
@@ -83,23 +85,22 @@
                     والسياسات</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
 
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">الاعدادات</span></a></li>
 
                 <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">الشروط والاحكام </span></a></li>
 
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">سياسة
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
+                            class="app-menu__label">سياسة
                             الشحن</span></a></li>
 
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
+                            class="app-menu__label">
                             عن المنظمة</span></a></li>
 
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
+                            class="app-menu__label">
                             سياسة الخصوصية</span></a></li>
             </ul>
         </li>
@@ -110,15 +111,13 @@
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
 
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">ايميلات العملاء</span></a></li>
 
-                {{--  @can('contactus')  --}}
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                {{-- @can('contactus') --}}
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">رسائل المستخدمين او الزوار</span></a></li>
-                {{--  @endcan  --}}
+                {{-- @endcan --}}
             </ul>
         </li>
 
@@ -128,23 +127,20 @@
                 </span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
 
-                {{--  @can('vendors')  --}}
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                {{-- @can('vendors') --}}
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">البائعين</span></a></li>
-                {{--  @endcan  --}}
+                {{-- @endcan --}}
 
-                {{--  @can('governorate')  --}}
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                {{-- @can('governorate') --}}
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">المحافظات</span></a></li>
-                {{--  @endcan  --}}
+                {{-- @endcan --}}
 
-                {{--  @can('vendors')  --}}
-                <li><a class="treeview-item" href="#"><i
-                            class="app-menu__icon fa fa-user"></i>
+                {{-- @can('vendors') --}}
+                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">سعر التوصيل للمحافظات</span></a></li>
-                {{--  @endcan  --}}
+                {{-- @endcan --}}
 
             </ul>
         </li>
