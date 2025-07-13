@@ -1,26 +1,26 @@
 @extends('layouts.admin.app')
 @section('title')
-المشرفين
+الاوامر والصلاحيات
 @endsection
 @section('content')
 <main class="app sidebar-mini rtl">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-th-list"></i> المشرفين </h1>
+            <h1><i class="fa fa-th-list"></i> الاوامر والصلاحيات </h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i><a href="{{ route('admin.dashboard') }}"
-                    title="الرئيسية"></a></li>
-            @can('admins')
-            <li class="breadcrumb-item active"><a href="{{ route('admin.admins.index') }}" title="المشرفين">المشرفين</a>
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i><a href="{{ route('admin.dashboard') }}"></a>
             </li>
+            @can('roles')
+            <li class="breadcrumb-item active"><a href="{{ route('admin.roles.index') }}"
+                    title="الاوامر والصلاحيات">الاوامر والصلاحيات</a></li>
             @endcan
         </ul>
     </div>
-    @can('admins.create')
+    @can('roles.create')
     <div>
-        <a class="btn btn-primary btn-sm" href="{{ route('admin.admins.create') }}" title="انشاء مشرف جديد">انشاء مشرف
-            جديد</a>
+        <a class="btn btn-primary btn-sm" href="{{ route('admin.roles.create') }}"
+            title="انشاء اوامر وصلاحيات جديده">انشاء اوامر وصلاحيات جديده</a>
     </div>
     @endcan
 
@@ -33,39 +33,30 @@
                             <tr>
                                 <th>#</th>
                                 <th>الاسم</th>
-                                <th>البريد الالكتروني</th>
-                                <th>الهاتف</th>
-                                <th>الدور</th>
-                                <th>الحالة</th>
                                 <th>العمليات</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($admins as $admin)
+                            @foreach ($roles as $role)
                             <tr>
 
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $admin->name }}</td>
-                                <td>{{ $admin->email }}</td>
-                                <td>{{ $admin->phone }}</td>
-                                <td>{{ $admin->role->name ?? 'لا يوجد' }}</td>
-                                <td>{{ $admin->suspend == 1 ? 'موقوف' : 'مفعل' }}</td>
+                                <td>{{ $role->name }}</td>
                                 <td>
-                                    @can('admins.edit')
-                                    <a class="btn btn-sm btn-dark" href="{{ route('admin.admins.edit', $admin) }}"
+                                    @can('roles.edit')
+                                    <a class="btn btn-sm btn-dark" href="{{ route('admin.roles.edit', $role) }}"
                                         title="تعديل">تعديل</a>
                                     @endcan
-                                    @can('admins.destroy')
-                                    <form action="{{ route('admin.admins.destroy', $admin) }}" title="حذف" method="post"
+                                    @can('roles.destroy')
+                                    <form action="{{ route('admin.roles.destroy', $role) }}" title="حذف" method="post"
                                         style="display: inline-block">
                                         @csrf
-                                        @method('GET')
+                                        @method('DELETE')
                                         <button type="'submit" class="btn btn-danger delete btn-sm"><i
                                                 class="fa fa-trash"></i>حذف</button>
                                     </form>
                                     @endcan
-
                                 </td>
                             </tr>
                             @endforeach

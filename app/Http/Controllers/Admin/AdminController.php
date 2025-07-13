@@ -5,15 +5,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AdminRequest;
 use App\Models\Admin\Admin;
 use App\Models\Admin\Role;
+use Illuminate\Support\Facades\Gate;
 
 class AdminController extends Controller
 {
     public function index()
     {
 
-        // if (! Gate::allows('admins')) {
-        //     return view('admin.errors.notAllowed');
-        // }
+        if (! Gate::allows('admins')) {
+            return view('admin.errors.notAllowed');
+        }
 
         $admins = Admin::get();
         return view('admin.admins.index', compact('admins'));
@@ -22,9 +23,9 @@ class AdminController extends Controller
     public function create()
     {
 
-        // if (! Gate::allows('admins.create')) {
-        //     return view('admin.errors.notAllowed');
-        // }
+        if (! Gate::allows('admins.create')) {
+            return view('admin.errors.notAllowed');
+        }
         $roles = Role::all();
         return view('admin.admins.create', compact('roles'));
     } //end of create
@@ -41,9 +42,9 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
-        // if (! Gate::allows('admins.edit')) {
-        //     return view('admin.errors.notAllowed');
-        // }
+        if (! Gate::allows('admins.edit')) {
+            return view('admin.errors.notAllowed');
+        }
 
         $roles = Role::get();
         return view('admin.admins.edit', compact('admin', 'roles'));
@@ -56,9 +57,13 @@ class AdminController extends Controller
         //password
         $data = $request->validated();
 
-        if ($request->filled('password')) {
+        if (! $request->filled('password')) {
+            unset($data['password']);
+        } else {
             $data['password'] = bcrypt($request->password);
         }
+
+        unset($data['old_password']);
 
         $admin->update($data);
 
@@ -69,9 +74,9 @@ class AdminController extends Controller
 
     public function destroy(Admin $admin)
     {
-        // if (! Gate::allows('admins.destroy')) {
-        //     return view('admin.errors.notAllowed');
-        // }
+        if (! Gate::allows('admins.destroy')) {
+            return view('admin.errors.notAllowed');
+        }
         $admin->delete();
         Toastr()->success('تم الحذف بنجاح');
         return redirect()->route('admin.admins.index');
