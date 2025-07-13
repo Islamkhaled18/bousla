@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,13 +10,15 @@ Route::prefix('admin')->as('admin.')->group(function () {
     Route::post('/login', [LoginController::class, 'postLogin'])->name('post.login');
 });
 
-
-
 Route::prefix('admin')
     ->as('admin.')
     ->middleware(['auth:admin'])
     ->group(function () {
-        // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         //auth
         Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+        // admins
+        Route::resource('admins', AdminController::class);
+
     });
