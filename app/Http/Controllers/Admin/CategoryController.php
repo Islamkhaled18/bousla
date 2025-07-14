@@ -5,11 +5,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryRequest;
 use App\Models\Admin\Category;
 use App\Models\Admin\MainCategory;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    use ImageUploadTrait;
+
     public function index()
     {
         if (! Gate::allows('categories')) {
@@ -40,9 +42,10 @@ class CategoryController extends Controller
 
         $request_data['main_category_id'] = $request->main_category_id;
 
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $image                 = $request->file('image');
-            $request_data['image'] = $image->store('categories', 'images');
+        // Handle image upload using trait
+        $imagePath = $this->handleImageUpload($request, 'image', 'categories');
+        if ($imagePath) {
+            $request_data['image'] = $imagePath;
         }
 
         $request_data['name'] = $request->name;
@@ -71,26 +74,22 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, Category $category)
     {
 
-        $old_image = $category->image;
-
         if ($request->type == 1) {
             $request['parent_id'] = null;
         }
 
         $request_data = $request->except(['name', 'type', 'image']);
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $image                 = $request->file('image');
-            $request_data['image'] = $image->store('categories', 'images');
+
+        // Handle image update using trait
+        $newImagePath = $this->handleImageUpdate($request, $category->image, 'image', 'categories');
+        if ($newImagePath) {
+            $request_data['image'] = $newImagePath;
         }
 
         $request_data['name']             = $request->name;
         $request_data['main_category_id'] = $request->main_category_id;
 
         $category->update($request_data);
-
-        if ($old_image && isset($request_data['image'])) {
-            Storage::disk('images')->delete($old_image);
-        }
 
         Toastr()->success('تم التعديل على القسم بنجاح');
         return redirect()->route('admin.categories.index');
@@ -102,9 +101,8 @@ class CategoryController extends Controller
             return view('admin.errors.notAllowed');
         }
 
-        if ($category->image) {
-            Storage::disk('images')->delete($category->image);
-        }
+        // Delete image using trait
+        $this->deleteOldImage($category->image);
 
         $category->delete();
         Toastr()->success('تم حذف القسم بنجاح');
