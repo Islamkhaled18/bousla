@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MainCategoryController;
@@ -28,5 +29,8 @@ Route::prefix('admin')
 
         //main category
         Route::resource('mainCategories', MainCategoryController::class);
+
+        // categories
+        Route::resource('categories', CategoryController::class);
 
     });

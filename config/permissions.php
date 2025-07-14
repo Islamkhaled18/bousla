@@ -16,10 +16,10 @@ return [
     'mainCategories.edit' => ' تعديل على قسم رئيسي',
     'mainCategories.destroy' => 'حذف قسم رئيسي ',
 
-    // 'categories' => 'مشاهدة الاقسام',
-    // 'categories.create' => 'انشاء قسم جديد',
-    // 'categories.edit' => 'تعديل على قسم',
-    // 'categories.destroy' => 'حذف قسم',
+    'categories' => 'مشاهدة الاقسام',
+    'categories.create' => 'انشاء قسم جديد',
+    'categories.edit' => 'تعديل على قسم',
+    'categories.destroy' => 'حذف قسم',
 
 
     // 'productColors' => 'مشاهدة الوان المنتج',
