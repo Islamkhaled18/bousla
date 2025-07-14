@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MainCategoryRequest;
 use App\Models\Admin\MainCategory;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 
 class MainCategoryController extends Controller
 {
+    use ImageUploadTrait;
     public function index()
     {
         if (! Gate::allows('mainCategories')) {
@@ -30,9 +31,10 @@ class MainCategoryController extends Controller
     {
         $data = $request->except('image');
 
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $image         = $request->file('image');
-            $data['image'] = $image->store('mainCategories', 'images');
+        // Handle image upload using trait
+        $imagePath = $this->handleImageUpload($request, 'image', 'mainCategories');
+        if ($imagePath) {
+            $data['image'] = $imagePath;
         }
 
         MainCategory::create($data);
@@ -53,18 +55,15 @@ class MainCategoryController extends Controller
     public function update(MainCategoryRequest $request, MainCategory $mainCategory)
     {
 
-        $old_image = $mainCategory->image;
-        $data      = $request->except('image');
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $image         = $request->file('image');
-            $data['image'] = $image->store('mainCategories', 'images');
+        $data = $request->except('image');
+
+        // Handle image update using trait
+        $newImagePath = $this->handleImageUpdate($request, $mainCategory->image, 'image', 'mainCategories');
+        if ($newImagePath) {
+            $data['image'] = $newImagePath;
         }
 
         $mainCategory->update($data);
-
-        if ($old_image && isset($data['image'])) {
-            Storage::disk('images')->delete($old_image);
-        }
 
         Toastr()->success('تم التعديل على القسم الرئيسي بنجاح');
         return redirect()->route('admin.mainCategories.index');
@@ -76,9 +75,8 @@ class MainCategoryController extends Controller
             return view('admin.errors.notAllowed');
         }
 
-        if ($mainCategory->image) {
-            Storage::disk('images')->delete($mainCategory->image);
-        }
+        // Delete image using trait
+        $this->deleteOldImage($mainCategory->image);
 
         $mainCategory->delete();
 
