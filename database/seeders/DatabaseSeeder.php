@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleTableSeeder::class,
             AdminTableSeeder::class,
-            RolePermissionTableSeeder::class
+            RolePermissionTableSeeder::class,
+            MainCategoryTableSeeder::class
         ]);
     }
 }

@@ -11,10 +11,10 @@ return [
     'admins.edit' => 'تعديل على مشرف',
     'admins.destroy' => 'حذف مشرف',
 
-    // 'mainCategories' => 'مشاهدة الاقسام الرئيسية',
-    // 'mainCategories.create' => 'انشاء قسم رئيسي جديد',
-    // 'mainCategories.edit' => ' تعديل على قسم رئيسي',
-    // 'mainCategories.destroy' => 'حذف قسم رئيسي ',
+    'mainCategories' => 'مشاهدة الاقسام الرئيسية',
+    'mainCategories.create' => 'انشاء قسم رئيسي جديد',
+    'mainCategories.edit' => ' تعديل على قسم رئيسي',
+    'mainCategories.destroy' => 'حذف قسم رئيسي ',
 
     // 'categories' => 'مشاهدة الاقسام',
     // 'categories.create' => 'انشاء قسم جديد',

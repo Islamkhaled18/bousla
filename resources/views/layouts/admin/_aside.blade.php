@@ -4,8 +4,8 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__user">
         <div>
-            <p class="app-sidebar__user-name">{{ auth()->user()->name }}</p>
-            <p class="app-sidebar__user-designation">{{ auth()->user()->email }}</p>
+            <p class="app-sidebar__user-name">{{ auth('admin')->user()->name }}</p>
+            <p class="app-sidebar__user-designation">{{ auth('admin')->user()->email }}</p>
         </div>
     </div>
 
@@ -24,8 +24,8 @@
                             class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">المشرفين</span></a>
                 </li>
                 @endcan
-                @can('roles')
 
+                @can('roles')
                 <li><a class="treeview-item" href="{{ route('admin.roles.index') }}"><i
                             class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">اوامر وصلاحيات</span></a></li>
@@ -39,9 +39,11 @@
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> الاقسام</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
-                            class="app-menu__label">الاقسم
+                @can('mainCategories')
+                <li><a class="treeview-item" href="{{ route('admin.mainCategories.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">الاقسم
                             الرئيسيه</span></a></li>
+                @endcan
                 <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
                             class="app-menu__label">الاقسام</span></a></li>
             </ul>
