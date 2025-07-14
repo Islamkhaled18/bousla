@@ -41,11 +41,13 @@
             <ul class="treeview-menu">
                 @can('mainCategories')
                 <li><a class="treeview-item" href="{{ route('admin.mainCategories.index') }}"><i
-                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">الاقسم
+                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">الاقسام
                             الرئيسيه</span></a></li>
                 @endcan
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
-                            class="app-menu__label">الاقسام</span></a></li>
+                @can('categories')
+                <li><a class="treeview-item" href="{{ route('admin.categories.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">الاقسام</span></a></li>
+                @endcan
             </ul>
         </li>
 

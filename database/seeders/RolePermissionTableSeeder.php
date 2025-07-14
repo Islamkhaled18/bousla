@@ -68,22 +68,22 @@ class RolePermissionTableSeeder extends Seeder
             ],
 
             //////////////////////////////////////////////////////////////
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'categories',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'categories.create',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'categories.edit',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'categories.destroy',
-            // ],
+            [
+                'role_id' => 1,
+                'permission' => 'categories',
+            ],
+            [
+                'role_id' => 1,
+                'permission' => 'categories.create',
+            ],
+            [
+                'role_id' => 1,
+                'permission' => 'categories.edit',
+            ],
+            [
+                'role_id' => 1,
+                'permission' => 'categories.destroy',
+            ],
 
             ///////////////////////////////////////////////
             // [

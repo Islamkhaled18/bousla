@@ -17,14 +17,14 @@ class MainCategoryTableSeeder extends Seeder
         $mainCategories = [
             [
                 'id'    => 1,
-                'name'  => 'Medical',
-                'slug'  => 'medical',
+                'name'  => 'Bousla Medical',
+                'slug'  => 'bousla-medical',
                 'image' => 'mainCategories/1.jpg',
             ],
             [
                 'id'    => 2,
-                'name'  => 'Home Services',
-                'slug'  => 'home-services',
+                'name'  => 'Bousla Home Services',
+                'slug'  => 'bousla-home-services',
                 'image' => 'mainCategories/2.jpg',
 
             ],
