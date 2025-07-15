@@ -1,15 +1,14 @@
 <?php
 namespace App\Models\Admin;
 
+use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-//slug
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
 
 class Role extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasSlug;
 
     protected $table    = 'roles';
     protected $fillable = ['name'];
@@ -22,25 +21,6 @@ class Role extends Model
     public function admins()
     {
         return $this->hasMany(Admin::class);
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    // BOOT SLUG
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->slug = Str::slug($model->name);
-        });
-
-        static::updating(function ($model) {
-            $model->slug = Str::slug($model->name);
-        });
     }
 
 }

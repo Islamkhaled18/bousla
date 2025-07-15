@@ -44,12 +44,14 @@ class BrandController extends Controller
 
         $brand = Brand::create($data);
 
-        foreach ($request->file('photo') as $imagefile) {
-            $image           = new BrandImage();
-            $path            = $imagefile->store('/images/brands', ['disk' => 'my_files']);
-            $image->photo    = $path;
-            $image->brand_id = $brand->id;
-            $image->save();
+        if ($request->hasFile('photo') && is_array($request->file('photo'))) {
+            foreach ($request->file('photo') as $imagefile) {
+                $image           = new BrandImage();
+                $path            = $imagefile->store('/images/brands', ['disk' => 'my_files']);
+                $image->photo    = $path;
+                $image->brand_id = $brand->id;
+                $image->save();
+            }
         }
 
         Toastr()->success('تم إضافة ماركة جديدة بنجاح');
@@ -87,7 +89,7 @@ class BrandController extends Controller
             }
         }
 
-        if ($request->hasFile('photo')) {
+        if ($request->hasFile('photo') && is_array($request->file('photo'))) {
             foreach ($request->file('photo') as $imagefile) {
                 $image           = new BrandImage();
                 $path            = $imagefile->store('/images/brands', ['disk' => 'my_files']);

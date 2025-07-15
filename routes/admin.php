@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -39,5 +40,9 @@ Route::prefix('admin')
         //brands
         Route::resource('brands', BrandController::class);
         Route::post('brands/{id}/toggle-status', [BrandController::class, 'toggleStatus'])->name('brands.toggleStatus');
+
+        //ads
+        Route::resource('ads', AdController::class);
+        Route::post('ads/{id}/toggle-status', [AdController::class, 'toggleStatus'])->name('ads.toggleStatus');
 
     });
