@@ -161,7 +161,16 @@ class RolePermissionTableSeeder extends Seeder
                 'role_id'    => 1,
                 'permission' => 'about_us.destroy',
             ],
-///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////contact_us
+            [
+                'role_id'    => 1,
+                'permission' => 'contact_us',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'contact_us.destroy',
+            ],
+///////////////////////////////////////////////////////////////////
             // [
             //     'role_id' => 1,
             //     'permission' => 'products',

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MainCategoryController;
@@ -59,5 +60,8 @@ Route::prefix('admin')
 
         //about_us
         Route::resource('about_us', AboutusController::class);
+
+        //contact_us
+        Route::resource('contact_us', ContactUsController::class)->only('index', 'destroy');
 
     });

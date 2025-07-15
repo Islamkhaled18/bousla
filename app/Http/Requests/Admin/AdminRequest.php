@@ -29,7 +29,7 @@ class AdminRequest extends FormRequest
             'email'        => ['required', 'email', 'max:100', Rule::unique('admins', 'email')->ignore($adminId)],
             'password'     => [$this->isMethod('post') ? 'required' : 'nullable', 'string', 'min:8'],
             'old_password' => [$this->filled('password') ? 'required' : 'nullable'],
-            'phone'        => ['required', 'string', 'max:20'],
+            'phone'        => ['required', 'regex:/^01[0-9]{9}$/'],
             'role_id'      => ['nullable', 'exists:roles,id'],
             'suspended'    => ['boolean'],
         ];
@@ -63,7 +63,7 @@ class AdminRequest extends FormRequest
             'password.min'      => 'كلمة المرور يجب أن تكون على الأقل 8 أحرف.',
 
             'phone.required'    => 'رقم الهاتف مطلوب.',
-            'phone.max'         => 'رقم الهاتف يجب ألا يتجاوز 20 رقمًا.',
+            'phone.regex'       => 'رقم الهاتف يجب أن يتكون من 11 رقمًا ويبدأ بـ 01.',
 
             'role_id.exists'    => 'الصلاحية المحددة غير موجودة.',
 

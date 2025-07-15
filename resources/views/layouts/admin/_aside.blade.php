@@ -89,14 +89,11 @@
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> التواصل</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                        <span class="app-menu__label">ايميلات العملاء</span></a></li>
-
-                {{-- @can('contactus') --}}
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
+                @can('contact_us')
+                <li><a class="treeview-item" href="{{ route('admin.contact_us.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">رسائل المستخدمين او الزوار</span></a></li>
-                {{-- @endcan --}}
+                @endcan
             </ul>
         </li>
 
