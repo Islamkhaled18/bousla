@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TermConditionController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -51,5 +52,8 @@ Route::prefix('admin')
             Route::get('/', [SettingController::class, 'index'])->name('settings.index');
             Route::post('update/{id}', [SettingController::class, 'update'])->name('settings.update');
         });
+
+        //terms-conditions
+        Route::resource('terms', TermConditionController::class);
 
     });
