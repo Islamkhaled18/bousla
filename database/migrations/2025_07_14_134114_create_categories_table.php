@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
             $table->bigInteger('main_category_id')->unsigned()->nullable();
             $table->foreign('main_category_id')->references('id')->on('main_categories')->onDelete('cascade');
-
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

@@ -6,12 +6,16 @@ use App\Http\Requests\Admin\BrandRequest;
 use App\Models\Admin\Brand;
 use App\Models\Admin\BrandImage;
 use App\Traits\ImageUploadTrait;
+use App\Traits\ToggleStatusTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
     use ImageUploadTrait;
+    use ToggleStatusTrait;
+
     public function index()
     {
         if (! Gate::allows('brands')) {
@@ -121,5 +125,16 @@ class BrandController extends Controller
         return redirect()->route('admin.brands.index');
 
     } //end of destroy
+
+    public function toggleStatus(Request $request, $id)
+    {
+        return $this->toggleStatusGeneric(
+            $request,
+            $id,
+            Brand::class,
+            'brands.edit',
+            'الماركه غير موجوده'
+        );
+    } //end of toggleStatus
 
 }

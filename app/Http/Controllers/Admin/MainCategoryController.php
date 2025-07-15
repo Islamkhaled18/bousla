@@ -5,11 +5,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\MainCategoryRequest;
 use App\Models\Admin\MainCategory;
 use App\Traits\ImageUploadTrait;
+use App\Traits\ToggleStatusTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class MainCategoryController extends Controller
 {
     use ImageUploadTrait;
+    use ToggleStatusTrait;
+
     public function index()
     {
         if (! Gate::allows('mainCategories')) {
@@ -84,5 +88,46 @@ class MainCategoryController extends Controller
         return redirect()->route('admin.mainCategories.index');
 
     } //end of destroy
+
+    public function toggleStatus(Request $request, $id)
+    {
+        // if (! Gate::allows('mainCategories.edit')) {
+        //     return response()->json(['success' => false, 'message' => 'غير مسموح'], 403);
+        // }
+
+        // try {
+        //     $mainCategory = MainCategory::find($id);
+
+        //     if (! $mainCategory) {
+        //         return response()->json([
+        //             'success' => false,
+        //             'message' => 'القسم غير موجود',
+        //         ], 404);
+        //     }
+
+        //     $mainCategory->update([
+        //         'is_active' => $request->is_active,
+        //     ]);
+
+        //     return response()->json([
+        //         'success'   => true,
+        //         'message'   => 'تم تغيير الحالة بنجاح',
+        //         'is_active' => $mainCategory->is_active,
+        //     ]);
+        // } catch (\Exception $e) {
+        //     return response()->json([
+        //         'success' => false,
+        //         'message' => 'حدث خطأ أثناء تغيير الحالة: ' . $e->getMessage(),
+        //     ], 500);
+        // }
+
+        return $this->toggleStatusGeneric(
+            $request,
+            $id,
+            MainCategory::class,
+            'mainCategories.edit',
+            'القسم الرئيسي غير موجود'
+        );
+    } //end of toggleStatus
 
 }

@@ -6,11 +6,14 @@ use App\Http\Requests\Admin\CategoryRequest;
 use App\Models\Admin\Category;
 use App\Models\Admin\MainCategory;
 use App\Traits\ImageUploadTrait;
+use App\Traits\ToggleStatusTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends Controller
 {
     use ImageUploadTrait;
+    use ToggleStatusTrait;
 
     public function index()
     {
@@ -109,4 +112,15 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index');
 
     } //end of destroy
+
+    public function toggleStatus(Request $request, $id)
+    {
+        return $this->toggleStatusGeneric(
+            $request,
+            $id,
+            Category::class,
+            'categories.edit',
+            'القسم غير موجود'
+        );
+    } //end of toggleStatus
 }
