@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -44,5 +45,11 @@ Route::prefix('admin')
         //ads
         Route::resource('ads', AdController::class);
         Route::post('ads/{id}/toggle-status', [AdController::class, 'toggleStatus'])->name('ads.toggleStatus');
+
+        //settings
+        Route::group(['prefix' => 'settings'], function () {
+            Route::get('/', [SettingController::class, 'index'])->name('settings.index');
+            Route::post('update/{id}', [SettingController::class, 'update'])->name('settings.update');
+        });
 
     });

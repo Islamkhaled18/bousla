@@ -100,9 +100,11 @@
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> الاعدادات
                     والسياسات</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
+                @can('settings')
+                <li><a class="treeview-item" href="{{ route('admin.settings.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">الاعدادات</span></a></li>
+                @endcan
 
                 <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">الشروط والاحكام </span></a></li>
