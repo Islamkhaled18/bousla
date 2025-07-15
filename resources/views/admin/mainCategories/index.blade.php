@@ -35,6 +35,7 @@
                                 <th>#</th>
                                 <th>الاسم</th>
                                 <th>الصوره</th>
+                                <th>الحالة</th>
                                 <th>العمليات</th>
 
                             </tr>
@@ -50,12 +51,30 @@
                                 </td>
                                 <td>
                                     @can('mainCategories.edit')
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input status-toggle" type="checkbox"
+                                            id="status_{{ $mainCategory->id }}" data-id="{{ $mainCategory->id }}" {{
+                                            $mainCategory->is_active ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="status_{{ $mainCategory->id }}">
+                                            <span class="status-text">{{ $mainCategory->is_active ? 'نشط' : 'غير نشط'
+                                                }}</span>
+                                        </label>
+                                    </div>
+                                    @else
+                                    <span class="badge {{ $mainCategory->is_active ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $mainCategory->is_active ? 'نشط' : 'غير نشط' }}
+                                    </span>
+                                    @endcan
+                                </td>
+                                <td>
+                                    @can('mainCategories.edit')
                                     <a class="btn btn-sm btn-dark"
-                                        href="{{ route('admin.mainCategories.edit', $mainCategory) }}" title="تعديل">تعديل</a>
+                                        href="{{ route('admin.mainCategories.edit', $mainCategory) }}"
+                                        title="تعديل">تعديل</a>
                                     @endcan
                                     @can('mainCategories.destroy')
-                                    <form action="{{ route('admin.mainCategories.destroy', $mainCategory) }}" title="حذف"
-                                        method="post" style="display: inline-block">
+                                    <form action="{{ route('admin.mainCategories.destroy', $mainCategory) }}"
+                                        title="حذف" method="post" style="display: inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="'submit" class="btn btn-danger delete btn-sm"><i
@@ -79,6 +98,38 @@
 @push('scripts')
 <script type="text/javascript">
     $('#sampleTable').DataTable();
+
+     $('.status-toggle').change(function() {
+        let checkbox = $(this);
+        let categoryId = checkbox.data('id');
+        let isActive = checkbox.is(':checked') ? 1 : 0;
+
+        checkbox.prop('disabled', true);
+
+        $.ajax({
+            url: '{{ route("admin.mainCategories.toggleStatus", ":id") }}'.replace(':id', categoryId),
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                is_active: isActive
+            },
+            success: function(response) {
+                if (response.success) {
+
+                    location.reload();
+                } else {
+
+                    checkbox.prop('checked', !isActive);
+                    checkbox.prop('disabled', false);
+                }
+            },
+            error: function(xhr) {
+
+                checkbox.prop('checked', !isActive);
+                checkbox.prop('disabled', false);
+            }
+        });
+    });
 </script>
 <!-- Google analytics script-->
 <script type="text/javascript">
@@ -98,4 +149,5 @@
         ga('send', 'pageview');
     }
 </script>
+
 @endpush

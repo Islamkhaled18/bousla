@@ -30,11 +30,14 @@ Route::prefix('admin')
 
         //main category
         Route::resource('mainCategories', MainCategoryController::class);
+        Route::post('mainCategories/{id}/toggle-status', [MainCategoryController::class, 'toggleStatus'])->name('mainCategories.toggleStatus');
 
         // categories
         Route::resource('categories', CategoryController::class);
+        Route::post('categories/{id}/toggle-status', [CategoryController::class, 'toggleStatus'])->name('categories.toggleStatus');
 
         //brands
         Route::resource('brands', BrandController::class);
+        Route::post('brands/{id}/toggle-status', [BrandController::class, 'toggleStatus'])->name('brands.toggleStatus');
 
     });

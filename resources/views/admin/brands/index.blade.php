@@ -36,6 +36,7 @@
                                 <th>#</th>
                                 <th>الاسم</th>
                                 <th>صورة الماركه</th>
+                                <th>الحاله</th>
                                 <th>العمليات</th>
                             </tr>
                         </thead>
@@ -47,6 +48,23 @@
                                 <td>
                                     <img src="{{ $brand->image_url }}" title="{{ $brand->name }}"
                                         alt="{{ $brand->name }}" width="60" height="60">
+                                </td>
+                                <td>
+                                    @can('brands.edit')
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input status-toggle" type="checkbox"
+                                            id="status_{{ $brand->id }}" data-id="{{ $brand->id }}" {{ $brand->is_active
+                                        ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="status_{{ $brand->id }}">
+                                            <span class="status-text">{{ $brand->is_active ? 'نشط' : 'غير نشط'
+                                                }}</span>
+                                        </label>
+                                    </div>
+                                    @else
+                                    <span class="badge {{ $brand->is_active ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $brand->is_active ? 'نشط' : 'غير نشط' }}
+                                    </span>
+                                    @endcan
                                 </td>
                                 <td>
                                     @can('brands.edit')
@@ -77,6 +95,39 @@
 @push('scripts')
 <script type="text/javascript">
     $('#sampleTable').DataTable();
+
+     $('.status-toggle').change(function() {
+        let checkbox = $(this);
+        let categoryId = checkbox.data('id');
+        let isActive = checkbox.is(':checked') ? 1 : 0;
+
+        checkbox.prop('disabled', true);
+
+        $.ajax({
+            url: '{{ route("admin.brands.toggleStatus", ":id") }}'.replace(':id', categoryId),
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                is_active: isActive
+            },
+            success: function(response) {
+                if (response.success) {
+
+                    location.reload();
+                } else {
+
+                    checkbox.prop('checked', !isActive);
+                    checkbox.prop('disabled', false);
+                }
+            },
+            error: function(xhr) {
+
+                checkbox.prop('checked', !isActive);
+                checkbox.prop('disabled', false);
+            }
+        });
+    });
+
 
 </script>
 <!-- Google analytics script-->

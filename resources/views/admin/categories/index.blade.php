@@ -36,6 +36,7 @@
                                 <th>اسم القسم التابع</th>
                                 <th>صورة القسم</th>
                                 <th>القسم الرئيسي</th>
+                                 <th>الحالة</th>
                                 <th>العمليات</th>
 
                             </tr>
@@ -51,7 +52,23 @@
                                         alt="{{ $category->name }}" width="60" height="60" alt="">
                                 </td>
                                 <td>{{ $category->MainCategory->name ?? '--' }}</td>
-
+                                 <td>
+                                    @can('categories.edit')
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input status-toggle" type="checkbox"
+                                            id="status_{{ $category->id }}" data-id="{{ $category->id }}" {{
+                                            $category->is_active ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="status_{{ $category->id }}">
+                                            <span class="status-text">{{ $category->is_active ? 'نشط' : 'غير نشط'
+                                                }}</span>
+                                        </label>
+                                    </div>
+                                    @else
+                                    <span class="badge {{ $category->is_active ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $category->is_active ? 'نشط' : 'غير نشط' }}
+                                    </span>
+                                    @endcan
+                                </td>
                                 <td>
                                     @can ('categories.edit')
                                     <a class="btn btn-sm btn-dark"
@@ -81,6 +98,38 @@
 @push('scripts')
 <script type="text/javascript">
     $('#sampleTable').DataTable();
+
+     $('.status-toggle').change(function() {
+        let checkbox = $(this);
+        let categoryId = checkbox.data('id');
+        let isActive = checkbox.is(':checked') ? 1 : 0;
+
+        checkbox.prop('disabled', true);
+
+        $.ajax({
+            url: '{{ route("admin.categories.toggleStatus", ":id") }}'.replace(':id', categoryId),
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                is_active: isActive
+            },
+            success: function(response) {
+                if (response.success) {
+
+                    location.reload();
+                } else {
+
+                    checkbox.prop('checked', !isActive);
+                    checkbox.prop('disabled', false);
+                }
+            },
+            error: function(xhr) {
+
+                checkbox.prop('checked', !isActive);
+                checkbox.prop('disabled', false);
+            }
+        });
+    });
 
 </script>
 <!-- Google analytics script-->
