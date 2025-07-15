@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             BrandTableSeeder::class,
             AdTableSeeder::class,
             SettingTableSeeder::class,
+            TermsConditionsTableSeeder::class,
         ]);
     }
 }

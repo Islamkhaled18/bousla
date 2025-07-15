@@ -33,6 +33,11 @@ return [
     'ads.edit'               => ' تعديل على صور اعلانات',
     'ads.destroy'            => 'حذف صور اعلانات',
 
+    'terms'                  => 'مشاهدة الشروط والاحكام',
+    'terms.create'           => 'انشاء شروط واحكام جديده',
+    'terms.edit'             => ' تعديل على شروط واحكام',
+    'terms.destroy'          => 'حذف شروط واحكام',
+
     // 'productColors' => 'مشاهدة الوان المنتج',
     // 'productColors.create' => 'انشاء لون منتج جديد',
     // 'productColors.edit' => 'تعديل على لون منتج',

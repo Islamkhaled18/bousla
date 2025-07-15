@@ -105,9 +105,11 @@
                             class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">الاعدادات</span></a></li>
                 @endcan
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
+                @can('terms')
+                <li><a class="treeview-item" href="{{ route('admin.terms.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">الشروط والاحكام </span></a></li>
+                @endcan
 
                 <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
                             class="app-menu__label">سياسة
