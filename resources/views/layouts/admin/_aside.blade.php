@@ -61,41 +61,6 @@
         @endcan
 
 
-
-
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">المنتجات وخصائصها</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>المنتجات</a></li>
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>الوان
-                        المنتجات</a></li>
-                <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> مقاس
-                        المنتجات </a></li>
-
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                        <span class="app-menu__label"> جدول المقاسات
-                        </span></a></li>
-            </ul>
-        </li>
-
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> الطلبات</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                        <span class="app-menu__label">طلبات العملاء</span></a></li>
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                        <span class="app-menu__label">طلبات الاسترجاع</span></a>
-                </li>
-
-
-            </ul>
-        </li>
-
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> الاعدادات
                     والسياسات</span><i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -111,17 +76,11 @@
                         <span class="app-menu__label">الشروط والاحكام </span></a></li>
                 @endcan
 
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
-                            class="app-menu__label">سياسة
-                            الشحن</span></a></li>
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
-                            class="app-menu__label">
+                @can('about_us')
+                <li><a class="treeview-item" href="{{ route('admin.about_us.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i> <span class="app-menu__label">
                             عن المنظمة</span></a></li>
-
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i> <span
-                            class="app-menu__label">
-                            سياسة الخصوصية</span></a></li>
+                @endcan
             </ul>
         </li>
 
@@ -141,35 +100,18 @@
             </ul>
         </li>
 
-
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> البائعين والمحافظات
                 </span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
-
-                {{-- @can('vendors') --}}
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                        <span class="app-menu__label">البائعين</span></a></li>
-                {{-- @endcan --}}
 
                 {{-- @can('governorate') --}}
                 <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">المحافظات</span></a></li>
                 {{-- @endcan --}}
 
-                {{-- @can('vendors') --}}
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                        <span class="app-menu__label">سعر التوصيل للمحافظات</span></a></li>
-                {{-- @endcan --}}
-
             </ul>
         </li>
-
-
-
-
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                <span class="app-menu__label">كوبونات الخصم</span></a></li>
 
     </ul>
 </aside>

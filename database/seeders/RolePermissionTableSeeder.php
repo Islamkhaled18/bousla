@@ -144,24 +144,24 @@ class RolePermissionTableSeeder extends Seeder
                 'permission' => 'terms.destroy',
             ],
 ////////////////////////////////////////////////////////////////
-            // [
 
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'productSizes',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'productSizes.create',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'productSizes.edit',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'productSizes.destroy',
-            // ],
+            [
+                'role_id'    => 1,
+                'permission' => 'about_us',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'about_us.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'about_us.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'about_us.destroy',
+            ],
+///////////////////////////////////////////////////////////
             // [
             //     'role_id' => 1,
             //     'permission' => 'products',
