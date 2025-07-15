@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutusController;
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
@@ -55,5 +56,8 @@ Route::prefix('admin')
 
         //terms-conditions
         Route::resource('terms', TermConditionController::class);
+
+        //about_us
+        Route::resource('about_us', AboutusController::class);
 
     });

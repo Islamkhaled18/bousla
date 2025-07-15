@@ -38,10 +38,10 @@ return [
     'terms.edit'             => ' تعديل على شروط واحكام',
     'terms.destroy'          => 'حذف شروط واحكام',
 
-    // 'productColors' => 'مشاهدة الوان المنتج',
-    // 'productColors.create' => 'انشاء لون منتج جديد',
-    // 'productColors.edit' => 'تعديل على لون منتج',
-    // 'productColors.destroy' => 'حذف لون منتج',
+    'about_us'               => 'مشاهدة شاشة عن المنظمة',
+    'about_us.create'        => 'انشاء بيانات عن المنظمة جديده',
+    'about_us.edit'          => 'تعديل على بيانات عن المنظمة',
+    'about_us.destroy'       => 'حذف بيانات عن المنظمة',
 
     // 'productSizes' => 'مشاهدة الوان المنتجات',
     // 'productSizes.create' => 'انشاء الوان منتج جديده',
