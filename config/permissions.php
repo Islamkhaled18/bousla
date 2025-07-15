@@ -1,37 +1,35 @@
 <?php
 
 return [
-    'roles' => 'مشاهدة الاوامر والصلاحيات',
-    'roles.create' => 'انشاء اوامر وصلاحيات جديده',
-    'roles.edit' => ' تعديل الاوامر والصلاحيات',
-    'roles.destroy' => 'حذف الاوامر والصلاحيات',
+    'roles'                  => 'مشاهدة الاوامر والصلاحيات',
+    'roles.create'           => 'انشاء اوامر وصلاحيات جديده',
+    'roles.edit'             => ' تعديل الاوامر والصلاحيات',
+    'roles.destroy'          => 'حذف الاوامر والصلاحيات',
 
-    'admins' => 'مشاهدة المشرفين',
-    'admins.create' => 'انشاء مشرف جديد',
-    'admins.edit' => 'تعديل على مشرف',
-    'admins.destroy' => 'حذف مشرف',
+    'admins'                 => 'مشاهدة المشرفين',
+    'admins.create'          => 'انشاء مشرف جديد',
+    'admins.edit'            => 'تعديل على مشرف',
+    'admins.destroy'         => 'حذف مشرف',
 
-    'mainCategories' => 'مشاهدة الاقسام الرئيسية',
-    'mainCategories.create' => 'انشاء قسم رئيسي جديد',
-    'mainCategories.edit' => ' تعديل على قسم رئيسي',
+    'mainCategories'         => 'مشاهدة الاقسام الرئيسية',
+    'mainCategories.create'  => 'انشاء قسم رئيسي جديد',
+    'mainCategories.edit'    => ' تعديل على قسم رئيسي',
     'mainCategories.destroy' => 'حذف قسم رئيسي ',
 
-    'categories' => 'مشاهدة الاقسام',
-    'categories.create' => 'انشاء قسم جديد',
-    'categories.edit' => 'تعديل على قسم',
-    'categories.destroy' => 'حذف قسم',
+    'categories'             => 'مشاهدة الاقسام',
+    'categories.create'      => 'انشاء قسم جديد',
+    'categories.edit'        => 'تعديل على قسم',
+    'categories.destroy'     => 'حذف قسم',
 
+    'brands'                 => 'مشاهدة الماركات ',
+    'brands.create'          => 'انشاء ماركه جديده',
+    'brands.edit'            => 'تعديل على ماركه',
+    'brands.destroy'         => 'حذف ماركه ',
 
     // 'productColors' => 'مشاهدة الوان المنتج',
     // 'productColors.create' => 'انشاء لون منتج جديد',
     // 'productColors.edit' => 'تعديل على لون منتج',
     // 'productColors.destroy' => 'حذف لون منتج',
-
-    // 'brands' => 'مشاهدة الماركات ',
-    // 'brands.create' => 'انشاء ماركه جديده',
-    // 'brands.edit' => 'تعديل على ماركه',
-    // 'brands.destroy' => 'حذف ماركه ',
-
 
     // 'productSizes' => 'مشاهدة الوان المنتجات',
     // 'productSizes.create' => 'انشاء الوان منتج جديده',
@@ -76,6 +74,4 @@ return [
     // 'coupons.edit' => ' تعديل على كوبون خصم',
     // 'coupons.destroy' => 'حذف كوبون الخصم ',
 
-]
-
-?>
+];

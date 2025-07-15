@@ -51,6 +51,10 @@
             </ul>
         </li>
 
+          <li><a class="app-menu__item" href="{{ route('admin.brands.index') }}"><i class="app-menu__icon fa fa-user"></i>
+                <span class="app-menu__label">الماركات</span></a></li>
+
+
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
                     class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">المنتجات وخصائصها</span><i
                     class="treeview-indicator fa fa-angle-right"></i></a>
@@ -149,8 +153,6 @@
             </ul>
         </li>
 
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                <span class="app-menu__label">الماركات</span></a></li>
 
 
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-user"></i>

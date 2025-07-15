@@ -25,8 +25,8 @@ class AdminRequest extends FormRequest
         $adminId = $this->route('admin');
 
         return [
-            'name'         => ['required', 'string', 'max:255'],
-            'email'        => ['required', 'email', 'max:255', Rule::unique('admins', 'email')->ignore($adminId)],
+            'name'         => ['required', 'string', 'max:91'],
+            'email'        => ['required', 'email', 'max:100', Rule::unique('admins', 'email')->ignore($adminId)],
             'password'     => [$this->isMethod('post') ? 'required' : 'nullable', 'string', 'min:8'],
             'old_password' => [$this->filled('password') ? 'required' : 'nullable'],
             'phone'        => ['required', 'string', 'max:20'],
@@ -52,12 +52,12 @@ class AdminRequest extends FormRequest
     {
         return [
             'name.required'     => 'الاسم مطلوب.',
-            'name.max'          => 'الاسم يجب ألا يتجاوز 255 حرفاً.',
+            'name.max'          => 'الاسم يجب ألا يتجاوز 91 حرفاً.',
 
             'email.required'    => 'البريد الإلكتروني مطلوب.',
             'email.email'       => 'صيغة البريد الإلكتروني غير صحيحة.',
             'email.unique'      => 'هذا البريد الإلكتروني مستخدم بالفعل.',
-            'email.max'         => 'البريد الإلكتروني يجب ألا يتجاوز 255 حرفاً.',
+            'email.max'         => 'البريد الإلكتروني يجب ألا يتجاوز 100 حرفاً.',
 
             'password.required' => 'كلمة المرور مطلوبة.',
             'password.min'      => 'كلمة المرور يجب أن تكون على الأقل 8 أحرف.',
