@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             MainCategoryTableSeeder::class,
             CategoryTableSeeder::class,
             BrandTableSeeder::class,
-            AdTableSeeder::class
+            AdTableSeeder::class,
+            SettingTableSeeder::class,
         ]);
     }
 }
