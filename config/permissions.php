@@ -43,6 +43,9 @@ return [
     'about_us.edit'          => 'تعديل على بيانات عن المنظمة',
     'about_us.destroy'       => 'حذف بيانات عن المنظمة',
 
+    'contact_us'             => 'مشاهدة رسائل التواصل',
+    'contact_us.destroy'     => 'حذف رسائل التواصل',
+
     // 'productSizes' => 'مشاهدة الوان المنتجات',
     // 'productSizes.create' => 'انشاء الوان منتج جديده',
     // 'productSizes.edit' => 'تعديل على الوان منتج',
