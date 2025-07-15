@@ -15,7 +15,7 @@
             <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}" title="الاقسام">الاقسام</a></li>
             @endcan
             @can('categories.edit')
-            <li class="breadcrumb-item active"><a href="{{ route('admin.categories.edit', $category->id) }}"
+            <li class="breadcrumb-item active"><a href="{{ route('admin.categories.edit', $category) }}"
                     title="تعديل على قسم">تعديل على قسم -
                     {{ $category->name }}</a></li>
             @endcan

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             RolePermissionTableSeeder::class,
             MainCategoryTableSeeder::class,
             CategoryTableSeeder::class,
-            BrandTableSeeder::class
+            BrandTableSeeder::class,
+            AdTableSeeder::class
         ]);
     }
 }

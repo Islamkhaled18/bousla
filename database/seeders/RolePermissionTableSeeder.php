@@ -103,6 +103,24 @@ class RolePermissionTableSeeder extends Seeder
                 'permission' => 'brands.destroy',
             ],
             ///////////////////////////////////////////////////
+            [
+                'role_id'    => 1,
+                'permission' => 'ads',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'ads.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'ads.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'ads.destroy',
+            ],
+
+/////////////////////////////////////////////////////////////////
 
             // [
             //     'role_id' => 1,
@@ -155,21 +173,7 @@ class RolePermissionTableSeeder extends Seeder
             //     'permission' => 'products.destroy',
             // ],
             // [
-            //     'role_id' => 1,
-            //     'permission' => 'roles',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'roles.create',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'roles.edit',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'roles.destroy',
-            // ],
+
             // [
             //     'role_id' => 1,
             //     'permission' => 'settings.edit',
@@ -215,22 +219,6 @@ class RolePermissionTableSeeder extends Seeder
             //     'permission' => 'DeliveryPolicy.destroy',
             // ],
 
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'ads',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'ads.create',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'ads.edit',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'ads.destroy',
-            // ],
             // [
             //     'role_id' => 1,
             //     'permission' => 'emailUs',

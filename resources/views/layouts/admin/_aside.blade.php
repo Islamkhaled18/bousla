@@ -50,9 +50,17 @@
                 @endcan
             </ul>
         </li>
-
-          <li><a class="app-menu__item" href="{{ route('admin.brands.index') }}"><i class="app-menu__icon fa fa-user"></i>
+        @can('brands')
+        <li><a class="app-menu__item" href="{{ route('admin.brands.index') }}"><i class="app-menu__icon fa fa-user"></i>
                 <span class="app-menu__label">الماركات</span></a></li>
+        @endcan
+
+        @can('ads')
+        <li><a class="app-menu__item" href="{{ route('admin.ads.index') }}"><i class="app-menu__icon fa fa-user"></i>
+                <span class="app-menu__label">الاعلانات</span></a></li>
+        @endcan
+
+
 
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
@@ -154,9 +162,6 @@
         </li>
 
 
-
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-user"></i>
-                <span class="app-menu__label">الاعلانات</span></a></li>
 
 
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-user"></i>

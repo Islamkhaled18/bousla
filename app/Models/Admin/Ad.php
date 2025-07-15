@@ -6,15 +6,16 @@ use App\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MainCategory extends Model
+class Ad extends Model
 {
     use HasFactory, HasSlug, HasImageUrl;
 
-    protected $table   = "main_categories";
+    protected $table   = "ads";
     protected $guarded = ['id'];
 
-    public function categories()
+    // RELATIONSHIPS
+    public function brand()
     {
-        return $this->hasMany(Category::class, 'main_category_id');
+        return $this->belongsTo(Brand::class);
     }
 }
