@@ -59,6 +59,10 @@
         <li><a class="app-menu__item" href="{{ route('admin.ads.index') }}"><i class="app-menu__icon fa fa-user"></i>
                 <span class="app-menu__label">الاعلانات</span></a></li>
         @endcan
+        @can('jobs')
+        <li><a class="app-menu__item" href="{{ route('admin.jobs.index') }}"><i class="app-menu__icon fa fa-user"></i>
+                <span class="app-menu__label">الوظائف</span></a></li>
+        @endcan
 
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
