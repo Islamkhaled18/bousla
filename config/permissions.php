@@ -46,10 +46,20 @@ return [
     'contact_us'             => 'مشاهدة رسائل التواصل',
     'contact_us.destroy'     => 'حذف رسائل التواصل',
 
-    // 'productSizes' => 'مشاهدة الوان المنتجات',
-    // 'productSizes.create' => 'انشاء الوان منتج جديده',
-    // 'productSizes.edit' => 'تعديل على الوان منتج',
-    // 'productSizes.destroy' => 'حذف الوان منتج',
+    'governorates'           => 'مشاهدة المحافظات',
+    'governorates.create'    => 'انشاء محافظه جديده',
+    'governorates.edit'      => 'تعديل محافظه ',
+    'governorates.destroy'   => 'حذف محافظه ',
+
+    'cities'                 => 'مشاهدة المدن',
+    'cities.create'          => 'انشاء مدينه جديده',
+    'cities.edit'            => 'تعديل مدينه ',
+    'cities.destroy'         => 'حذف مدينه ',
+
+    'areas'                 => 'مشاهدة المناطق',
+    'areas.create'          => 'انشاء منطقه جديده',
+    'areas.edit'            => 'تعديل منطقه ',
+    'areas.destroy'         => 'حذف منطقه ',
 
     // 'products' => 'مشاهدة المنتجات',
     // 'products.create' => 'انشاء منتج جديد',

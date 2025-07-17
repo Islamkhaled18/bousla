@@ -171,6 +171,57 @@ class RolePermissionTableSeeder extends Seeder
                 'permission' => 'contact_us.destroy',
             ],
 ///////////////////////////////////////////////////////////////////
+            [
+                'role_id'    => 1,
+                'permission' => 'governorates',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'governorates.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'governorates.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'governorates.destroy',
+            ],
+/////////////////////////////////////////////////////////////////
+            [
+                'role_id'    => 1,
+                'permission' => 'cities',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'cities.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'cities.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'cities.destroy',
+            ],
+/////////////////////////////////////////////////////////////////
+            [
+                'role_id'    => 1,
+                'permission' => 'areas',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'areas.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'areas.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'areas.destroy',
+            ],
+////////////////////////////////////////////////////////////////////
             // [
             //     'role_id' => 1,
             //     'permission' => 'products',
@@ -242,22 +293,7 @@ class RolePermissionTableSeeder extends Seeder
             //     'role_id' => 1,
             //     'permission' => 'emailUs.destroy',
             // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'governorate',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'governorate.create',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'governorate.edit',
-            // ],
-            // [
-            //     'role_id' => 1,
-            //     'permission' => 'governorate.destroy',
-            // ],
+
             // [
             //     'role_id' => 1,
             //     'permission' => 'coupons',

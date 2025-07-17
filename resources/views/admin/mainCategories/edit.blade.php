@@ -13,7 +13,7 @@
             </li>
             @can('mainCategories')
             <li class="breadcrumb-item"><a href="{{ route('admin.mainCategories.index') }}"
-                    title="الاقسم الرئيسيه">الاقسم الرئيسيه</a></li>
+                    title="الاقسام الرئيسيه">الاقسام الرئيسيه</a></li>
             @endcan
             @can('mainCategories.edit')
             <li class="breadcrumb-item active"><a href="{{ route('admin.mainCategories.edit', $mainCategory) }}"

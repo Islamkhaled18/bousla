@@ -5,8 +5,11 @@ use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GovernorateController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\RoleController;
@@ -64,4 +67,15 @@ Route::prefix('admin')
         //contact_us
         Route::resource('contact_us', ContactUsController::class)->only('index', 'destroy');
 
+        //governorates
+        Route::resource('governorates', GovernorateController::class);
+        Route::post('governorates/{id}/toggle-status', [GovernorateController::class, 'toggleStatus'])->name('governorates.toggleStatus');
+
+        //cities
+        Route::resource('cities', CityController::class);
+        Route::post('cities/{id}/toggle-status', [CityController::class, 'toggleStatus'])->name('cities.toggleStatus');
+
+        //areas
+        Route::resource('areas', AreaController::class);
+        Route::post('areas/{id}/toggle-status', [AreaController::class, 'toggleStatus'])->name('areas.toggleStatus');
     });

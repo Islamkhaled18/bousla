@@ -98,14 +98,24 @@
         </li>
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> البائعين والمحافظات
+                    class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> المناطق الجغرافية
                 </span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
 
-                {{-- @can('governorate') --}}
-                <li><a class="treeview-item" href="#"><i class="app-menu__icon fa fa-user"></i>
+                @can('governorates')
+                <li><a class="treeview-item" href="{{ route('admin.governorates.index') }}"><i class="app-menu__icon fa fa-user"></i>
                         <span class="app-menu__label">المحافظات</span></a></li>
-                {{-- @endcan --}}
+                @endcan
+
+                @can('cities')
+                <li><a class="treeview-item" href="{{ route('admin.cities.index') }}"><i class="app-menu__icon fa fa-user"></i>
+                        <span class="app-menu__label">المدن</span></a></li>
+                @endcan
+
+                @can('areas')
+                <li><a class="treeview-item" href="{{ route('admin.areas.index') }}"><i class="app-menu__icon fa fa-user"></i>
+                        <span class="app-menu__label">المناطق</span></a></li>
+                @endcan
 
             </ul>
         </li>
