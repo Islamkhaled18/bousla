@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             TermsConditionsTableSeeder::class,
             AboutUsTableSeeder::class,
             ContactUsTableSeeder::class,
+            GovernorateTableSeeder::class,
+            CityTableSeeder::class,
+            AreaTableSeeder::class,
         ]);
     }
 }
