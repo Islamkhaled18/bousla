@@ -56,10 +56,15 @@ return [
     'cities.edit'            => 'تعديل مدينه ',
     'cities.destroy'         => 'حذف مدينه ',
 
-    'areas'                 => 'مشاهدة المناطق',
-    'areas.create'          => 'انشاء منطقه جديده',
-    'areas.edit'            => 'تعديل منطقه ',
-    'areas.destroy'         => 'حذف منطقه ',
+    'areas'                  => 'مشاهدة المناطق',
+    'areas.create'           => 'انشاء منطقه جديده',
+    'areas.edit'             => 'تعديل منطقه ',
+    'areas.destroy'          => 'حذف منطقه ',
+
+    'jobs'                   => 'مشاهدة الوظائف',
+    'jobs.create'            => 'انشاء وظيفة جديده',
+    'jobs.edit'              => 'تعديل وظيفة ',
+    'jobs.destroy'           => 'حذف وظيفة ',
 
     // 'products' => 'مشاهدة المنتجات',
     // 'products.create' => 'انشاء منتج جديد',

@@ -222,6 +222,24 @@ class RolePermissionTableSeeder extends Seeder
                 'permission' => 'areas.destroy',
             ],
 ////////////////////////////////////////////////////////////////////
+
+            [
+                'role_id'    => 1,
+                'permission' => 'jobs',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'jobs.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'jobs.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'jobs.destroy',
+            ],
+////////////////////////////////////////////////////////////////////
             // [
             //     'role_id' => 1,
             //     'permission' => 'products',

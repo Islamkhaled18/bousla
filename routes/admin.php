@@ -3,10 +3,10 @@
 use App\Http\Controllers\Admin\AboutusController;
 use App\Http\Controllers\Admin\AdController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
-use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GovernorateController;
@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TermConditionController;
+use App\Http\Controllers\Admin\JobController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -78,4 +79,8 @@ Route::prefix('admin')
         //areas
         Route::resource('areas', AreaController::class);
         Route::post('areas/{id}/toggle-status', [AreaController::class, 'toggleStatus'])->name('areas.toggleStatus');
+
+        //jobs
+        Route::resource('jobs', JobController::class);
+        Route::post('jobs/{id}/toggle-status', [JobController::class, 'toggleStatus'])->name('jobs.toggleStatus');
     });
