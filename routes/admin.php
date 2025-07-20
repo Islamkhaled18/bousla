@@ -7,15 +7,17 @@ use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GovernorateController;
+use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\Admin\JoinRequestController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TermConditionController;
-use App\Http\Controllers\Admin\JobController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->as('admin.')->group(function () {
@@ -83,4 +85,36 @@ Route::prefix('admin')
         //jobs
         Route::resource('jobs', JobController::class);
         Route::post('jobs/{id}/toggle-status', [JobController::class, 'toggleStatus'])->name('jobs.toggleStatus');
+
+        //requests
+        Route::resource('join-requests', JoinRequestController::class);
+
+        Route::get('join-requests/{id}/download-graduation-certificate', [JoinRequestController::class, 'downloadGraduationCertificate'])
+            ->name('admin.join-requests.download-graduation-certificate');
+
+        Route::get('join-requests/{id}/download-professional-license', [JoinRequestController::class, 'downloadProfessionalLicense'])
+            ->name('admin.join-requests.download-professional-license');
+
+        Route::get('join-requests/{id}/download-syndicate-card', [JoinRequestController::class, 'downloadSyndicateCard'])
+            ->name('admin.join-requests.download-syndicate-card');
+        Route::post('join-requests/{id}/update-status', [JoinRequestController::class, 'updateStatus'])
+            ->name('join-requests.update-status');
+
+        Route::post('join-requests/{id}/toggle-status', [JoinRequestController::class, 'toggleStatus'])->name('join-requests.toggleStatus');
+
+        //clients
+        Route::resource('clients', ClientController::class);
+        Route::get('clients/{id}/download-graduation-certificate', [ClientController::class, 'downloadGraduationCertificate'])
+            ->name('admin.clients.download-graduation-certificate');
+
+        Route::get('clients/{id}/download-professional-license', [ClientController::class, 'downloadProfessionalLicense'])
+            ->name('admin.clients.download-professional-license');
+
+        Route::get('clients/{id}/download-syndicate-card', [ClientController::class, 'downloadSyndicateCard'])
+            ->name('admin.clients.download-syndicate-card');
+
+        Route::post('clients/{id}/toggle-status', [ClientController::class, 'toggleStatus'])->name('clients.toggleStatus');
+
+
+
     });
