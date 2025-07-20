@@ -124,5 +124,26 @@
             </ul>
         </li>
 
+
+
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                    class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> العملاء وطلبات الانضمام
+                    </span><i class="treeview-indicator fa fa-angle-right"></i></a>
+            <ul class="treeview-menu">
+                @can('join_requests')
+                <li><a class="treeview-item" href="{{ route('admin.join-requests.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i>
+                        <span class="app-menu__label">طلبات الانضمام</span></a></li>
+                @endcan
+
+                @can('clients')
+                <li><a class="treeview-item" href="{{ route('admin.clients.index') }}"><i
+                            class="app-menu__icon fa fa-user"></i>
+                        <span class="app-menu__label">العملاء </span></a></li>
+                @endcan
+
+            </ul>
+        </li>
+
     </ul>
 </aside>

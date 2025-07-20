@@ -66,6 +66,16 @@ return [
     'jobs.edit'              => 'تعديل وظيفة ',
     'jobs.destroy'           => 'حذف وظيفة ',
 
+    'join_requests'          => 'مشاهدة طلبات الانضمام',
+    'join_requests.create'   => 'انشاء طلبات الانضمام جديده',
+    'join_requests.edit'     => 'تعديل طلبات الانضمام ',
+    'join_requests.destroy'  => 'حذف طلبات الانضمام ',
+    'join_requests.approval' => 'الموافقه على طلبات الانضمام ',
+
+    'clients'                => 'مشاهدة العملاء',
+    'clients.edit'           => 'تعديل العملاء ',
+    'clients.destroy'        => 'حذف العملاء ',
+
     // 'products' => 'مشاهدة المنتجات',
     // 'products.create' => 'انشاء منتج جديد',
     // 'products.edit' => 'تعديل على  منتج',

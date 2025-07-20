@@ -239,7 +239,46 @@ class RolePermissionTableSeeder extends Seeder
                 'role_id'    => 1,
                 'permission' => 'jobs.destroy',
             ],
+////////////////////////////////////////////////////////////////////join_requests
+
+            [
+                'role_id'    => 1,
+                'permission' => 'join_requests',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'join_requests.create',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'join_requests.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'join_requests.destroy',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'join_requests.approval',
+            ],
 ////////////////////////////////////////////////////////////////////
+
+            [
+                'role_id'    => 1,
+                'permission' => 'clients',
+            ],
+
+            [
+                'role_id'    => 1,
+                'permission' => 'clients.edit',
+            ],
+            [
+                'role_id'    => 1,
+                'permission' => 'clients.destroy',
+            ],
+
+////////////////////////////////////////////////////////////////////
+
             // [
             //     'role_id' => 1,
             //     'permission' => 'products',
