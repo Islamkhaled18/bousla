@@ -13,10 +13,23 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('phone');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            $table->enum('type', ['client', 'requester'])->default('requester');
+
+
+            $table->string('email')->unique()->nullable();
+            $table->unsignedBigInteger('job_title_id')->nullable();
+            $table->foreign('job_title_id')->on('job_titles')->references('id')->onDelete('cascade');
+            $table->unsignedBigInteger('area_id')->nullable();
+            $table->foreign('area_id')->on('areas')->references('id')->onDelete('cascade');
+            $table->string('id_number')->unique()->nullable();
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->boolean('is_active')->default(1);
+
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
